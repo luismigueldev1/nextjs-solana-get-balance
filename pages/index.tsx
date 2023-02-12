@@ -27,7 +27,7 @@ export default function Home() {
         alignContent="center"
         css={{ height: "100vh" }}
       >
-        <Grid xs={11} md={6} css={{ display: "flex", flexDirection: "column" }}>
+        <Grid xs={10} md={6} css={{ display: "flex", flexDirection: "column" }}>
           <Text h2 css={{ textAlign: "center" }}>
             Start your Solana journey
           </Text>
@@ -39,12 +39,7 @@ export default function Home() {
             onChange={handleChange}
           />
           <Spacer />
-          <Button
-            shadow
-            css={{ width: "auto" }}
-            color="gradient"
-            onClick={handleClick}
-          >
+          <Button shadow color="gradient" onPress={handleClick}>
             Check SOL Balance
           </Button>
           <Spacer />
@@ -56,8 +51,22 @@ export default function Home() {
           )}
           {balance && (
             <>
-              <Text h4 css={{ textAlign: "center" }}>
-                Solana Address: {address}
+              <Text
+                h4
+                css={{
+                  textAlign: "center",
+                }}
+              >
+                Solana Address:
+              </Text>
+              <Text
+                h4
+                css={{
+                  textAlign: "center",
+                  "@smMax": { overflowY: "scroll" },
+                }}
+              >
+                {address}
               </Text>
               <Text h4 css={{ textAlign: "center" }}>
                 Balance: {balance} SOL

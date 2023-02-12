@@ -22,11 +22,15 @@ export function useAccountInfo() {
     setIsLoading(true);
     try {
       const value = await getAccountInfo(addressInput!);
-      if (value) {
+      console.log(value);
+      if (!value) {
+        setError("No data found.");
+      } else {
         setBalance(value.lamports / LAMPORTS_PER_SOL);
         setIsExecutable(value.executable);
         setAddress(addressInput);
       }
+
       setIsLoading(false);
     } catch (error) {
       setError((error as Error).message);
